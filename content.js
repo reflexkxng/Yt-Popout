@@ -261,8 +261,8 @@
   async function init() {
     try {
       await waitForElement('#movie_player video, video.html5-main-video, video');
-    } catch (_) {
-      alert("No vid");
+    } catch {
+      console.error(" No video player found ");
       return;
     }
 
