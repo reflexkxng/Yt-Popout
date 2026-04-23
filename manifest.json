@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Auto Float",
+  "description": "Automatically floats the YouTube video when you scroll down into the comments, and snaps it back when you return to the top.",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+/* ===== YouTube Auto Float Extension ===== */
+
+#yt-autofloat-pip {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 360px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 999999;
+
+  /* Glassmorphism shadow */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.55),
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  /* Hidden state – slide out to right */
+  opacity: 0;
+  transform: translateX(calc(100% + 40px));
+  pointer-events: none;
+  transition:
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  background: #000;
+}
+
+#yt-autofloat-pip.visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Drag handle bar at top */
+#yt-autofloat-pip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65), transparent);
+  z-index: 2;
+  cursor: grab;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Close button */
+#yt-autofloat-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 10;
+  width: 22px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1;
+  transition: background 0.2s;
+}
+
+#yt-autofloat-close:hover {
+  background: rgba(255, 60, 60, 0.7);
+}
+
+/* The actual video element inside the pip container */
+#yt-autofloat-pip video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Resize handle */
+#yt-autofloat-resize {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  cursor: sw-resize;
+  z-index: 10;
+}
+
+#yt-autofloat-resize::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid rgba(255,255,255,0.4);
+  border-bottom: 2px solid rgba(255,255,255,0.4);
+  border-radius: 0 0 0 3px;
+}
