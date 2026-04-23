@@ -1,4 +1,4 @@
-# YouTube Popout
+# Yt-Popout
 
 A browser extension that keeps your video visible while you scroll down to read comments or browse.
 
@@ -15,3 +15,5 @@ I made this because I was annoyed that I couldn't watch the video while scrollin
 2. Open your browser's extensions page (e.g., `chrome://extensions/` or `edge://extensions/`).
 3. Enable **Developer mode** in the top right.
 4. Click **Load unpacked** and select the folder containing these files.
+
+enjoy 😊
